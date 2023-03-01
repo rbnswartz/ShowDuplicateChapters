@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ShowDuplicateChapters.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+        x:Class="ShowDuplicateChapters.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Duplicate Chapter Checker"
+        Width="550"
+        Height="600"
+        >
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+        
+    <Grid ColumnDefinitions="*,Auto,*" RowDefinitions="Auto,200,Auto">
+        <Button Grid.Column="1" HorizontalAlignment="Center" Grid.Row="0" Margin="0,10" Command="{Binding OpenFileCommand}">Open Folder</Button>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,10" Grid.Row="1">Output</TextBlock>
+        <ItemsRepeater HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" Items="{Binding Results}">
+            <TextBlock HorizontalAlignment="Center" Text="{Binding}"></TextBlock>
+        </ItemsRepeater>
+    </Grid>
+
+</Window>
